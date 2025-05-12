@@ -20,37 +20,37 @@ class HTMLBuilder:
 
     def body(self, content):
         snippet = '<body>' + str(content) + '</body>'
-        self.append(snippet)
+        
         return snippet
 
     def p(self, content):
         snippet = '<p>' + str(content) + '</p>'
-        self.append(snippet)
+        
         return snippet
 
     def h1(self, content):
         snippet = '<h1>' + str(content) + '</h1>'
-        self.append(snippet)
+        
         return snippet
 
     def h2(self, content):
         snippet = '<h2>' + str(content) + '</h2>'
-        self.append(snippet)
+        
         return snippet
 
     def h3(self, content):
         snippet = '<h3>' + str(content) + '</h3>'
-        self.append(snippet)
+        
         return snippet
 
     def h4(self, content):
         snippet = '<h4>' + str(content) + '</h4>'
-        self.append(snippet)
+        
         return snippet
 
     def h5(self, content):
         snippet = '<h5>' + str(content) + '</h5>'
-        self.append(snippet)
+        
         return snippet
 
     def h6(self, content):
