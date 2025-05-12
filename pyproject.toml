@@ -1,0 +1,19 @@
+[project]
+name = "Html_Builder_Bradley_Hu"
+version = "0.0.1"
+authors = [
+  { name="Bradley Hu", email="hu.yu@wcs-g.com" },
+]
+description = "A package for creating html code from python"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/bradley-dev777/PythonHtmlBuilder"
+Issues = "https://github.com/bradley-dev777/PythonHtmlBuilder/issues"
