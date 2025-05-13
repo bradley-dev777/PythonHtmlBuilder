@@ -1,11 +1,11 @@
 [project]
 name = "Html_Builder_Bradley-Hu"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Bradley Hu", email="hu.yu@wcs-g.com" },
-  { name="Jayden Yin", email="cybersphereworld@gmail.com"},
+  { name="Jayden Yin (Cybersphere World)", email="cybersphereworld@gmail.com"},
 ]
-description = "A package for creating html code from python"
+description = "A package for creating HTML code with Python, driven by a smiple class. Built with Hatchling."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
