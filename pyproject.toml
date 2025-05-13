@@ -1,8 +1,9 @@
 [project]
-name = "Html_Builder_Bradley_Hu"
+name = "Html_Builder_Bradley-Hu"
 version = "0.0.1"
 authors = [
   { name="Bradley Hu", email="hu.yu@wcs-g.com" },
+  { name="Jayden Yin", email="cybersphereworld@gmail.com",}
 ]
 description = "A package for creating html code from python"
 readme = "README.md"
@@ -17,3 +18,7 @@ license-files = ["LICENSE"]
 [project.urls]
 Homepage = "https://github.com/bradley-dev777/PythonHtmlBuilder"
 Issues = "https://github.com/bradley-dev777/PythonHtmlBuilder/issues"
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
