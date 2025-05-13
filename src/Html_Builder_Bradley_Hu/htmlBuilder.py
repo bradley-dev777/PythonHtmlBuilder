@@ -4,53 +4,46 @@ class HTMLBuilder:
 
     def append(self, html_snippet):
         self.html_text += html_snippet
-
     def get_html(self):
         return self.html_text
-
+    @staticmethod
     def doctype(self):
         snippet = '<!DOCTYPE html>'
         self.append(snippet)
         return snippet
-
+    @staticmethod
     def html(self, content):
         snippet = '<html>' + str(content) + '</html>'
         self.append(snippet)
         return snippet
-
+    @staticmethod
     def body(self, content):
         snippet = '<body>' + str(content) + '</body>'
         
         return snippet
-
+    @staticmethod
     def p(self, content):
         snippet = '<p>' + str(content) + '</p>'
-        
         return snippet
-
+    @staticmethod
     def h1(self, content):
         snippet = '<h1>' + str(content) + '</h1>'
-        
         return snippet
-
+    @staticmethod
     def h2(self, content):
         snippet = '<h2>' + str(content) + '</h2>'
-        
         return snippet
-
+    @staticmethod
     def h3(self, content):
         snippet = '<h3>' + str(content) + '</h3>'
-        
         return snippet
-
+    @staticmethod
     def h4(self, content):
         snippet = '<h4>' + str(content) + '</h4>'
-        
         return snippet
-
+    @staticmethod
     def h5(self, content):
         snippet = '<h5>' + str(content) + '</h5>'
-        
         return snippet
 
     def h6(self, content):
