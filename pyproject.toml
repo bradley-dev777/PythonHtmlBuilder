@@ -3,7 +3,7 @@ name = "Html_Builder_Bradley-Hu"
 version = "0.0.1"
 authors = [
   { name="Bradley Hu", email="hu.yu@wcs-g.com" },
-  { name="Jayden Yin", email="cybersphereworld@gmail.com",}
+  { name="Jayden Yin", email="cybersphereworld@gmail.com"},
 ]
 description = "A package for creating html code from python"
 readme = "README.md"
