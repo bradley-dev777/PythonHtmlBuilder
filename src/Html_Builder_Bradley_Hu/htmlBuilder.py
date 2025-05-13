@@ -12,7 +12,7 @@ class HTMLBuilder:
         return snippet
     @staticmethod
     def html(self, content):
-        snippet = '<html>\n' + str(content) + '</html>'
+        snippet = '<html>' + str(content) + '</html>'
         self.append(snippet)
         return snippet
     @staticmethod
