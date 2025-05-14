@@ -22,8 +22,13 @@ class HTMLBuilder:
 
     @staticmethod
     def html(self, content):
-        snippet = '<html>\n' + self.validate_content(content) + '</html>'
+        snippet = '<html>' + self.validate_content(content) + '</html>'
         self.append(snippet)
+        return snippet
+
+    @staticmethod
+    def head(content):
+        snippet = '<head>' + HTMLBuilder.validate_content(content) + '</head>'
         return snippet
 
     @staticmethod
