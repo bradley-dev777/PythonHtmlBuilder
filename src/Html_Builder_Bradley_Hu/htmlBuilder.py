@@ -16,35 +16,35 @@ class HTMLBuilder:
         self.append(snippet)
         return snippet
     @staticmethod
-    def body(self, content):
+    def body(content):
         snippet = '<body>' + str(content) + '</body>'
         return snippet
     @staticmethod
-    def p(self, content):
+    def p(content):
         snippet = '<p>' + str(content) + '</p>'
         return snippet
     @staticmethod
-    def h1(self, content):
+    def h1(content):
         snippet = '<h1>' + str(content) + '</h1>'
         return snippet
     @staticmethod
-    def h2(self, content):
+    def h2(content):
         snippet = '<h2>' + str(content) + '</h2>'
         return snippet
     @staticmethod
-    def h3(self, content):
+    def h3(content):
         snippet = '<h3>' + str(content) + '</h3>'
         return snippet
     @staticmethod
-    def h4(self, content):
+    def h4(content):
         snippet = '<h4>' + str(content) + '</h4>'
         return snippet
     @staticmethod
-    def h5(self, content):
+    def h5(content):
         snippet = '<h5>' + str(content) + '</h5>'
         return snippet
     @staticmethod
-    def h6(self, content):
+    def h6(content):
         snippet = '<h6>' + str(content) + '</h6>'
         return snippet
     @staticmethod
@@ -116,6 +116,9 @@ class HTMLBuilder:
     @staticmethod
     def title(content):
         return '<title>' + str(content) + '</title>'
+    @staticmethod
+    def div(content):
+        return '<div>' + str(content) + '</div>'
     @staticmethod
     def meta(charset=None, name=None, content=None):
         if charset:
