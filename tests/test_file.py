@@ -7,118 +7,110 @@ spec.loader.exec_module(module)
 HTMLBuilder = module.HTMLBuilder
 
 # Test 1: Basic HTML structure
-def test_1():
+def test_basic_html_structure():
     obj = HTMLBuilder()
     obj.doctype(obj)
--    obj.html(obj, obj.head("") + obj.body(obj, obj.h1(obj, "Title test") + obj.p(obj, "Paragraph")))
-+    obj.html(obj, obj.head("") + obj.body(obj.h1("Title test") + obj.p("Paragraph")))
-    print(obj.get_html())
+    obj.html(obj, obj.head("") + obj.body(obj.h1("Title test") + obj.p("Paragraph")))
+    expected_html = "<!DOCTYPE html><html><head></head><body><h1>Title test</h1><p>Paragraph</p></body></html>"
+    assert obj.get_html() == expected_html
 
 # Test 2: Nested HTML elements
-def test_2():
+def test_nested_html_elements():
     obj = HTMLBuilder()
     obj.doctype(obj)
--    nested_div = obj.div(obj, obj.p(obj, "Nested paragraph inside div") + obj.span(obj, "Span inside div"))
--    obj.html(obj, obj.body(obj, obj.h1(obj, "Nested Elements Test") + nested_div))
-+    nested_div = obj.div(obj.p("Nested paragraph inside div") + obj.span("Span inside div"))
-+    obj.html(obj, obj.body(obj.h1("Nested Elements Test") + nested_div))
-    print(obj.get_html())
+    nested_div = obj.div(obj.p("Nested paragraph inside div") + obj.span("Span inside div"))
+    obj.html(obj, obj.body(obj.h1("Nested Elements Test") + nested_div))
+    expected_html = (
+        "<!DOCTYPE html><html><body>"
+        "<h1>Nested Elements Test</h1>"
+        "<div><p>Nested paragraph inside div</p><span>Span inside div</span></div>"
+        "</body></html>"
+    )
+    assert obj.get_html() == expected_html
 
 # Test 3: HTML with attributes
-def test_3():
+def test_html_with_attributes():
     obj = HTMLBuilder()
     obj.doctype(obj)
--    obj.html(obj, obj.body(obj, obj.h1(obj, "Attributes Test", {"class": "header"}) + obj.p(obj, "Paragraph with id", {"id": "para1"})))
-+    obj.html(obj, obj.body(obj.h1("Attributes Test", {"class": "header"}) + obj.p("Paragraph with id", {"id": "para1"})))
-    print(obj.get_html())
+    obj.html(obj, obj.body(obj.h1("Attributes Test", {"class": "header"}) + obj.p("Paragraph with id", {"id": "para1"})))
+    expected_html = (
+        '<!DOCTYPE html><html><body>'
+        '<h1 class="header">Attributes Test</h1>'
+        '<p id="para1">Paragraph with id</p>'
+        '</body></html>'
+    )
+    assert obj.get_html() == expected_html
 
 # Test 4: Complex structure with multiple elements
-def test_4():
+def test_complex_structure():
     obj = HTMLBuilder()
     obj.doctype(obj)
--    obj.html(obj, obj.body(obj, 
--        obj.h1(obj, "Complex Structure Test") +
--        obj.div(obj, 
--            obj.ul(obj, 
--                obj.li(obj, "Item 1") +
--                obj.li(obj, "Item 2") +
--                obj.li(obj, "Item 3")
--            ) +
--            obj.p(obj, "Paragraph inside div")
--        ) +
--        obj.footer(obj, "Footer content")
--    ))
-+    obj.html(obj, obj.body(
-+        obj.h1("Complex Structure Test") +
-+        obj.div(
-+            obj.ul(
-+                obj.li("Item 1") +
-+                obj.li("Item 2") +
-+                obj.li("Item 3")
-+            ) +
-+            obj.p("Paragraph inside div")
-+        ) +
-+        obj.footer("Footer content")
-+    ))
-    print(obj.get_html())
+    obj.html(obj, obj.body(
+        obj.h1("Complex Structure Test") +
+        obj.div(
+            obj.ul(
+                obj.li("Item 1") +
+                obj.li("Item 2") +
+                obj.li("Item 3")
+            ) +
+            obj.p("Paragraph inside div")
+        ) +
+        obj.footer("Footer content")
+    ))
+    expected_html = (
+        "<!DOCTYPE html><html><body>"
+        "<h1>Complex Structure Test</h1>"
+        "<div><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>"
+        "<p>Paragraph inside div</p></div>"
+        "<footer>Footer content</footer>"
+        "</body></html>"
+    )
+    assert obj.get_html() == expected_html
 
 # Test 5: Empty tags and self-closing tags
-def test_5():
+def test_empty_and_self_closing_tags():
     obj = HTMLBuilder()
     obj.doctype(obj)
--    obj.html(obj, obj.body(obj, 
--        obj.h1(obj, "Empty and Self-Closing Tags Test") +
--        obj.img(obj, {"src": "image.jpg", "alt": "Sample Image"}) +
--        obj.br(obj) +
--        obj.hr(obj)
--    ))
-+    obj.html(obj, obj.body(
-+        obj.h1("Empty and Self-Closing Tags Test") +
-+        obj.img({"src": "image.jpg", "alt": "Sample Image"}) +
-+        obj.br() +
-+        obj.hr()
-+    ))
-    print(obj.get_html())
+    obj.html(obj, obj.body(
+        obj.h1("Empty and Self-Closing Tags Test") +
+        obj.img({"src": "image.jpg", "alt": "Sample Image"}) +
+        obj.br() +
+        obj.hr()
+    ))
+    expected_html = (
+        '<!DOCTYPE html><html><body>'
+        '<h1>Empty and Self-Closing Tags Test</h1>'
+        '<img src="image.jpg" alt="Sample Image"/>'
+        '<br/><hr/>'
+        '</body></html>'
+    )
+    assert obj.get_html() == expected_html
 
 # Test 6: Invalid inputs and error handling
-def test_6():
+def test_invalid_inputs():
     obj = HTMLBuilder()
     try:
         obj.doctype(obj)
--        obj.html(obj, obj.body(obj, obj.h1(obj, None)))  # Passing None as content
-+        obj.html(obj, obj.body(obj.h1(None)))  # Passing None as content
-        print(obj.get_html())
+        obj.html(obj, obj.body(obj.h1(None)))  # Passing None as content
+        assert False, "Expected an exception when passing None as content"
     except Exception as e:
-        print(f"Error caught: {e}")
+        assert str(e) == "Invalid content provided", f"Unexpected error: {e}"
 
 # Test 7: Multiple nested levels
-def test_7():
+def test_multiple_nested_levels():
     obj = HTMLBuilder()
     obj.doctype(obj)
--    deeply_nested = obj.div(obj, 
--        obj.div(obj, 
--            obj.div(obj, 
--                obj.p(obj, "Deeply nested paragraph")
--            )
--        )
--    )
--    obj.html(obj, obj.body(obj, deeply_nested))
-+    deeply_nested = obj.div(
-+        obj.div(
-+            obj.div(
-+                obj.p("Deeply nested paragraph")
-+            )
-+        )
-+    )
-+    obj.html(obj, obj.body(deeply_nested))
-    print(obj.get_html())
-
-# Run all tests
-if __name__ == "__main__":
-    test_1()
-    test_2()
-    test_3()
-    test_4()
-    test_5()
-    test_6()
-    test_7()
+    deeply_nested = obj.div(
+        obj.div(
+            obj.div(
+                obj.p("Deeply nested paragraph")
+            )
+        )
+    )
+    obj.html(obj, obj.body(deeply_nested))
+    expected_html = (
+        "<!DOCTYPE html><html><body>"
+        "<div><div><div><p>Deeply nested paragraph</p></div></div></div>"
+        "</body></html>"
+    )
+    assert obj.get_html() == expected_html
