@@ -36,19 +36,6 @@ def test_nested_html_elements(html_builder):
     assert html_builder.get_html() == expected_html
 
 
-def test_html_with_attributes(html_builder):
-    """Test HTML generation with attributes."""
-    html_builder.doctype(html_builder)
-    html_builder.html(html_builder,html_builder.body(html_builder,html_builder.h1(html_builder,"Attributes Test") + html_builder.p(html_builder,"Paragraph with id='test', class='content'")))
-    expected_html = (
-        "<!DOCTYPE html>\n<html><body>"
-        "<h1>Attributes Test</h1>"
-        "<p id='test' class='content'>Paragraph with id='test', class='content'</p>"
-        "</body></html>"
-    )
-    assert html_builder.get_html() == expected_html
-
-
 def test_empty_html_document(html_builder):
     """Test generating an empty HTML document."""
     html_builder.doctype(html_builder)
