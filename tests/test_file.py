@@ -15,6 +15,7 @@ def html_builder():
 
 
 def test_basic_html_structure(html_builder):
+    """Test basic HTML structure generation."""
     html_builder.doctype(html_builder)
     html_builder.html(html_builder.head("") + html_builder.body(html_builder.h1("Title test") + html_builder.p("Paragraph")))
     expected_html = "<!DOCTYPE html>\n<html><head></head><body><h1>Title test</h1><p>Paragraph</p></body></html>"
@@ -22,6 +23,7 @@ def test_basic_html_structure(html_builder):
 
 
 def test_nested_html_elements(html_builder):
+    """Test HTML with nested elements."""
     html_builder.doctype(html_builder)
     nested_div = html_builder.div(html_builder.p("Nested paragraph inside div") + html_builder.div("Span inside div"))
     html_builder.html(html_builder.body(html_builder.h1("Nested Elements Test") + nested_div))
@@ -35,6 +37,21 @@ def test_nested_html_elements(html_builder):
 
 
 def test_html_with_attributes(html_builder):
+    """Test HTML generation with attributes."""
     html_builder.doctype(html_builder)
-    html_builder.html(html_builder.body(html_builder.h1("Attributes Test") + html_builder.p("Paragraph with id")))
-    expected_html
+    html_builder.html(html_builder.body(html_builder.h1("Attributes Test") + html_builder.p("Paragraph with id='test', class='content'")))
+    expected_html = (
+        "<!DOCTYPE html>\n<html><body>"
+        "<h1>Attributes Test</h1>"
+        "<p id='test' class='content'>Paragraph with id='test', class='content'</p>"
+        "</body></html>"
+    )
+    assert html_builder.get_html() == expected_html
+
+
+def test_empty_html_document(html_builder):
+    """Test generating an empty HTML document."""
+    html_builder.doctype(html_builder)
+    html_builder.html("")
+    expected_html = "<!DOCTYPE html>\n<html></html>"
+    assert html_builder.get_html() == expected_html
