@@ -1,6 +1,6 @@
 [project]
 name = "Html_Builder_Bradley-Hu"
-version = "0.0.2"
+version = "0.1.0"
 authors = [
   { name="Bradley Hu", email="hu.yu@wcs-g.com" },
   { name="Jayden Yin (Cybersphere World)", email="cybersphereworld@gmail.com"},
