@@ -27,7 +27,7 @@ class HTMLBuilder:
         return snippet
 
     @staticmethod
-    def head(content):
+    def head(self,content):
         snippet = '<head>' + HTMLBuilder.validate_content(content) + '</head>'
         return snippet
 
