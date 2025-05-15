@@ -39,7 +39,7 @@ def test_nested_html_elements(html_builder):
 def test_html_with_attributes(html_builder):
     """Test HTML generation with attributes."""
     html_builder.doctype(html_builder)
-    html_builder.html(html_builder.body(html_builder.h1(html_builder,"Attributes Test") + html_builder.p("Paragraph with id='test', class='content'")))
+    html_builder.html(html_builder.body(html_builder.h1(html_builder,"Attributes Test") + html_builder.p(html_builder,"Paragraph with id='test', class='content'")))
     expected_html = (
         "<!DOCTYPE html>\n<html><body>"
         "<h1>Attributes Test</h1>"
