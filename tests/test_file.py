@@ -38,4 +38,3 @@ def test_html_with_attributes(html_builder):
     html_builder.doctype(html_builder)
     html_builder.html(html_builder.body(html_builder.h1("Attributes Test") + html_builder.p("Paragraph with id")))
     expected_html
-
