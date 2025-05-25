@@ -1,2 +1,2 @@
 # PythonHtmlBuilder
-A project for creating HTML from Python.
+A project for creating HTML from Python. 
